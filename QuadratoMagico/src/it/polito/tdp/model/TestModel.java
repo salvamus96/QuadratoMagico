@@ -9,9 +9,9 @@ public class TestModel {
 		Model model = new Model();
 		List<Quadrato> quadrati = model.findMagicSquare(3);
 		
-//		for (Quadrato q : quadrati) {
-//			System.out.println(q);
-//		}
+		for (Quadrato q : quadrati) {
+			System.out.println(q);
+		}
 		
 	}
 
