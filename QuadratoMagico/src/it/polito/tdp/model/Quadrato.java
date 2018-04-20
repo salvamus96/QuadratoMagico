@@ -11,7 +11,7 @@ public class Quadrato {
 
 	public Quadrato(int n) {
 		this.n = n;
-		this.magic = n * (n * n + 1) / 2;
+		this.magic = n * (n * n + 1) / 2; // costante che deriva da una formula
 		this.matrice = new ArrayList<Integer>();
 	}
 
@@ -21,51 +21,56 @@ public class Quadrato {
 		this.matrice = new ArrayList<Integer>(q.getMatrice());
 	}
 	
+	// NOTA BENE: Osserva i pdf dove sono spiegati molto bene!
+	// CONVERSIONE DA MATRICE IN VETTORE
+	// A [i][j] = B [i*n+j] con A matrice con n colonne e B vettore 
+	
 	private boolean checkRows() {
 		for (int i = 0; i< n; i++) {
 			int somma = 0;
-			for (int j = 0; j < n; j++) {
+			for (int j = 0; j < n; j++) 
 				somma += matrice.get(i*n+j);
-			}
-			if (somma != magic) {
+		
+			if (somma != magic) 
 				return false;
-			}
+		
 		}
 		return true;
 	}
+
 	
 	private boolean checkColumns() {
 		for (int j = 0; j < n; j++) {
 			int somma = 0;
-			for (int i = 0; i< n; i++) {
+			for (int i = 0; i< n; i++) 
 				somma += matrice.get(i*n+j);
-			}
-			if (somma != magic) {
+		
+			if (somma != magic) 
 				return false;
-			}
+	
 		}
 		return true;
 	}
 	
 	private boolean checkMainDiagonal() {
 		int somma = 0;
-		for (int i = 0; i < n; i ++) {
+		for (int i = 0; i < n; i ++) 
 			somma += this.matrice.get(i*n+i);
-		}
-		if (somma != magic) {
+		
+		if (somma != magic) 
 			return false;
-		}
+		
 		return true;
 	}
 	
 	private boolean checkSecondaryDiagonal() {
 		int somma = 0;
-		for (int i = 0; i < n; i ++) {
+		for (int i = 0; i < n; i ++) 
 			somma += this.matrice.get(i*n+n-1-i);
-		}
-		if (somma != magic) {
+		
+		if (somma != magic) 
 			return false;
-		}
+		
 		return true;
 	}
 	
